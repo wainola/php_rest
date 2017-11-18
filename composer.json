@@ -1,0 +1,12 @@
+{
+    "name": "nicolasriquelmeguzman/rest_service",
+    "authors": [
+        {
+            "name": "Nicolas Riquelme Guzman",
+            "email": "nrriquelme@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.9"
+    }
+}
