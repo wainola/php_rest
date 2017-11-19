@@ -49,7 +49,31 @@ foreach($json_data as $data){
         $data["longitude"]
     );
 
-/*    var_dump($data_to_db);
-    echo "<br><br>";*/
+    // Iniciamos la insercion de los datos.
+    $query = 'INSERT INTO data_json(indice, guid, isActive, balance, picture, age, eyeColor, name_data, gender, company, email, phone, address, about, registered, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+
+    $statement = $db->prepare($query);
+    $statement->bindParam(1, $data_to_db->getIndex());
+    $statement->bindParam(2, $data_to_db->getGuid());
+    $statement->bindParam(3, $data_to_db->getisActive());
+    $statement->bindParam(4, $data_to_db->getBalance());
+    $statement->bindParam(5, $data_to_db->getPicture());
+    $statement->bindParam(6, $data_to_db->getAge());
+    $statement->bindParam(7, $data_to_db->getEyeColor());
+    $statement->bindParam(8, $data_to_db->getName());
+    $statement->bindParam(9, $data_to_db->getGender());
+    $statement->bindParam(10, $data_to_db->getCompany());
+    $statement->bindParam(11, $data_to_db->getEmail());
+    $statement->bindParam(12, $data_to_db->getPhone());
+    $statement->bindParam(13, $data_to_db->getAddress());
+    $statement->bindParam(14, $data_to_db->getAbout());
+    $statement->bindParam(15, $data_to_db->getRegistered());
+    $statement->bindParam(16, $data_to_db->getLatitude());
+    $statement->bindParam(17, $data_to_db->getLongitude());
+
+    $statement->execute();
+
+    var_dump($statement->execute());
+    echo "<br><br>";
 
 }
