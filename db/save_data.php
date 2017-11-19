@@ -11,7 +11,20 @@ $data_json = file_get_contents("../data/data.json");
 $credenciales = json_decode(file_get_contents('./credentials.json'), true);
 $json_data = json_decode($data_json, true);
 
-var_dump($credenciales);
+$db_user = $credenciales["db"]["user"];
+$db_pass = $credenciales["db"]["password"];
+
+$db = new PDO(
+    'mysql:host=127.0.0.1;dbname=php',
+    $db_user,
+    $db_pass
+);
+
+// Corriendo un query se prueba.
+$rows = $db->query('SELECT * FROM data_json');
+foreach($rows as $row){
+    var_dump($row);
+}
 
 foreach($json_data as $data){
     // inicializacion del objeto.
