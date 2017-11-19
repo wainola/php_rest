@@ -52,6 +52,7 @@ foreach($json_data as $data){
     // Iniciamos la insercion de los datos.
     $query = 'INSERT INTO data_json(indice, guid, isActive, balance, picture, age, eyeColor, name_data, gender, company, email, phone, address, about, registered, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
+    // NOTE: insercion se lleva a caboa traves de un prepared statement.
     $statement = $db->prepare($query);
     $statement->bindParam(1, $data_to_db->getIndex());
     $statement->bindParam(2, $data_to_db->getGuid());
